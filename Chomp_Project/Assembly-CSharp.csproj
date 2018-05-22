@@ -51,22 +51,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Invector-3rdPersonController\Basic Locomotion LITE\Scripts\Camera\vThirdPersonCamera.cs" />
-     <Compile Include="Assets\Invector-3rdPersonController\Basic Locomotion LITE\Scripts\CharacterController\vThirdPersonAnimator.cs" />
-     <Compile Include="Assets\Invector-3rdPersonController\Basic Locomotion LITE\Scripts\CharacterController\vThirdPersonController.cs" />
-     <Compile Include="Assets\Invector-3rdPersonController\Basic Locomotion LITE\Scripts\CharacterController\vThirdPersonInput.cs" />
-     <Compile Include="Assets\Invector-3rdPersonController\Basic Locomotion LITE\Scripts\CharacterController\vThirdPersonMotor.cs" />
-     <Compile Include="Assets\Invector-3rdPersonController\Basic Locomotion LITE\Scripts\Generic\vComment.cs" />
-     <Compile Include="Assets\Invector-3rdPersonController\Basic Locomotion LITE\Scripts\Generic\vDestroyGameObject.cs" />
-     <Compile Include="Assets\Invector-3rdPersonController\Basic Locomotion LITE\Scripts\Generic\vExtensions.cs" />
-     <Compile Include="Assets\Invector-3rdPersonController\Basic Locomotion LITE\Scripts\Generic\vPickupItem.cs" />
-     <Compile Include="Assets\LowPolyNature\Scripts\DamageSource.cs" />
-     <Compile Include="Assets\LowPolyNature\Scripts\GameManager.cs" />
-     <Compile Include="Assets\LowPolyNature\Scripts\HealthBar.cs" />
-     <Compile Include="Assets\LowPolyNature\Scripts\HUD.cs" />
-     <Compile Include="Assets\LowPolyNature\Scripts\PlayerController.cs" />
-     <Compile Include="Assets\LowPolyNature\Scripts\PlayerFollow.cs" />
-     <None Include="Assets\Invector-3rdPersonController\Basic Locomotion LITE\README_Basic.txt" />
+     <Compile Include="Assets\AIE_Controller\Scripts\FPS_Axis.cs" />
+     <Compile Include="Assets\AIE_Controller\Scripts\FPS_Button.cs" />
+     <Compile Include="Assets\AIE_Controller\Scripts\FPS_CollisionResponse.cs" />
+     <Compile Include="Assets\AIE_Controller\Scripts\FPS_Enumerations.cs" />
+     <Compile Include="Assets\AIE_Controller\Scripts\FPS_GroundForce.cs" />
+     <Compile Include="Assets\AIE_Controller\Scripts\FPS_HeightTrigger.cs" />
+     <Compile Include="Assets\AIE_Controller\Scripts\FPS_InputManager.cs" />
+     <Compile Include="Assets\AIE_Controller\Scripts\FPS_PhysicsUse.cs" />
+     <Compile Include="Assets\AIE_Controller\Scripts\FPS_Player.cs" />
+     <Compile Include="Assets\AIE_Controller\Scripts\Manager_Game.cs" />
+     <Compile Include="Assets\AIE_Controller\XInput\Plugins\XboxCtrlrInput.cs" />
+     <Compile Include="Assets\AIE_Controller\XInput\Plugins\XboxCtrlrInput_Helpers\XciAxisDeadzoneData.cs" />
+     <Compile Include="Assets\AIE_Controller\XInput\Plugins\XboxCtrlrInput_Helpers\XciInputManagerClone.cs" />
+     <Compile Include="Assets\AIE_Controller\XInput\Plugins\XboxCtrlrInput_Helpers\XciInputManagerReader.cs" />
+     <Compile Include="Assets\AIE_Controller\XInput\XboxCtrlrInputExample\MoveLaser.cs" />
+     <Compile Include="Assets\AIE_Controller\XInput\XboxCtrlrInputExample\MovePlayer.cs" />
+     <Compile Include="Assets\AIE_Controller\XInput\XInputDotNet\Examples\XInputTestCS.cs" />
+     <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <None Include="Assets\AIE_Controller\XInput\XInputDotNet\MITLicense.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -159,6 +162,9 @@
  </Reference>
  <Reference Include="UnityEngine.StandardEvents">
  <HintPath>C:/Users/s181306/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
+ </Reference>
+ <Reference Include="XInputDotNetPure">
+ <HintPath>C:/Users/s181306/Desktop/Chomp/Chomp/Assets/AIE_Controller/XInput/Plugins/x86_64/XInputDotNetPure.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
