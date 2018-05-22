@@ -4,23 +4,35 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-	public float speed;
+	public GameObject Cradle;
+	public GameObject Chase;
+	public GameObject Camera;
 
-	private Rigidbody rigidBody;
+	public CharacterController cc;
 
 	//Use this for initialization
 	void Start ()
 	{
-		rigidBody = GetComponent();
+
 	}
 
-	void FixedUpdate ()
+	//Update is called once per frame
+	void Update ()
 	{
-		float moveHorizontal = Input.GetAxis ("Horizontal");
-		float moveVertical = Input.GetAxis ("Vertical");
+		Cradle.transform.position = this.transform.position;
+		Camera.transform.position = Vector3.Lerp(Camera.transform.position, Chase.transform.position, 2 * Time.deltaTime);
+		Camera.transform.LookAt(this.transform);
 
-		Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
+		if (Input.GetMouseButton(0)) {
+			Vector2 mouseInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+			Vector3 cradleRotation = Cradle.transform.eulerAngles;
+			cradleRotation.y -= mouseInput.x;
+			cradleRotation.x += mouseInput.y;
+			Cradle.transform.eulerAngles = cradleRotation;
+		}
 
-		rigidBody.AddForce (movement * speed);
+		Vector3 moveInput = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+
+		cc.Move(moveInput);
 	}
 }
