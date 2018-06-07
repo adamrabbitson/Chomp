@@ -1,6 +1,17 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\LoadSceneOnClick.cs">
+    <Files>
+      <File FileName="Assets\Scripts\PlayerController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PlayerCamera.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\TriggerTeleport.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\EnemyController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\EnemyTrigger.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PlayerHealth.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\ExitOnClick.cs" Line="8" Column="23" />
+      <File FileName="Assets\Scripts\LoadSceneOnClick.cs" Line="8" Column="35" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

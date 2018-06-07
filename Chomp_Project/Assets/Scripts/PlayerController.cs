@@ -4,35 +4,73 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-	public GameObject Cradle;
-	public GameObject Chase;
-	public GameObject Camera;
+	// movementSpeed is the speed the player moves
+	public float movementSpeed = 10;
+	// turningSpeed is the speed the player strafes
+	public float strafingSpeed = 10;
+	// jumpSpeed is the speed the player jumps
+	public float jumpSpeed = 1000.0f;
+	// canJump is to check if the player has jumped too fast
+	private float canJump = 0.0f;
 
-	public CharacterController cc;
+	//---------------------------------------------------------------
+	// Update ()
+	// Called every frame
+	//
+	// Return:
+	//		Void
+	//---------------------------------------------------------------
+	void Update () {
+		float horizontal = Input.GetAxis ("Horizontal") * strafingSpeed * Time.deltaTime;
+		transform.Translate (horizontal, 0, 0);
 
-	//Use this for initialization
-	void Start ()
-	{
+		float vertical = Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime;
+		transform.Translate (0, 0, vertical);
 
-	}
-
-	//Update is called once per frame
-	void Update ()
-	{
-		Cradle.transform.position = this.transform.position;
-		Camera.transform.position = Vector3.Lerp(Camera.transform.position, Chase.transform.position, 2 * Time.deltaTime);
-		Camera.transform.LookAt(this.transform);
-
-		if (Input.GetMouseButton(0)) {
-			Vector2 mouseInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-			Vector3 cradleRotation = Cradle.transform.eulerAngles;
-			cradleRotation.y -= mouseInput.x;
-			cradleRotation.x += mouseInput.y;
-			Cradle.transform.eulerAngles = cradleRotation;
+		if (Input.GetAxis("Jump") > 0 && Time.time > canJump) {
+			Jump ();
 		}
 
-		Vector3 moveInput = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+		if (Input.GetKeyDown (KeyCode.LeftShift)) {
+			Crouch ();
+		}
 
-		cc.Move(moveInput);
+		if (Input.GetKeyUp (KeyCode.LeftShift)) {
+			UnCrouch ();
+		}
+	}
+
+	//---------------------------------------------------------------
+	// Jump ()
+	// Called in Update - when player jumps
+	//
+	// Return:
+	//		Void
+	//---------------------------------------------------------------
+	void Jump () {
+		GetComponent<Rigidbody> ().AddForce (Vector3.up * jumpSpeed);
+		canJump = Time.time + 1.3f;
+	}
+
+	//---------------------------------------------------------------
+	// Crouch ()
+	// Called in Update - when player crouches
+	//
+	// Return:
+	//		Void
+	//---------------------------------------------------------------
+	void Crouch () {
+		transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y * 0.5f, transform.localScale.z);
+	}
+
+	//---------------------------------------------------------------
+	// UnCrouch ()
+	// Called in Update - when player uncrouches
+	//
+	// Return:
+	//		Void
+	//---------------------------------------------------------------
+	void UnCrouch () {
+		transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y * 2.0f, transform.localScale.z);
 	}
 }
